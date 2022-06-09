@@ -1,8 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import styles from './app.module.css';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
+import Navbar from './ContactForm/Navbar';
+
 import {
   getContacts,
   getError,
@@ -45,7 +48,8 @@ const App = () => {
   const filteredContacts = getFilteredContacts();
 
   return (
-    <div>
+    <div className={styles.container}>
+      <Navbar />
       <h1>Phonebook</h1>
       <ContactForm onSubmit={addContacts} />
       <h2>Contacts</h2>

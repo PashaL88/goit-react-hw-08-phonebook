@@ -1,0 +1,6 @@
+.list {
+    display: flex;
+}
+.item {
+    text-decoration: none;
+}

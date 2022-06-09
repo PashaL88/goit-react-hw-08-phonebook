@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import styles from './ContactForm.module.css';
 
-function ContactForm({ onSubmit }) {
+const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -58,7 +58,7 @@ function ContactForm({ onSubmit }) {
       </button>
     </form>
   );
-}
+};
 
 export default ContactForm;
 
