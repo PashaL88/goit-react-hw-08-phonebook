@@ -14,13 +14,15 @@ const Navbar = () => {
         <NavLink to="/contacts" className={getActiveLink}>
           Contacts
         </NavLink>
-        <NavLink to="/login" className={getActiveLink}>
-          Login
-        </NavLink>
-        |
-        <NavLink to="/register" className={getActiveLink}>
-          Register
-        </NavLink>
+        <div className={styles.entrance}>
+          <NavLink to="/login" className={getActiveLink}>
+            Login
+          </NavLink>
+          |
+          <NavLink to="/register" className={getActiveLink}>
+            Register
+          </NavLink>
+        </div>
       </nav>
     </>
   );

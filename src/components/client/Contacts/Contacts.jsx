@@ -5,10 +5,11 @@ import {
   getError,
   getLoading,
 } from 'redux/contacts/contactsSelector';
+import styles from './contacts.module.css';
 import * as operations from 'redux/contacts/contacts-operations';
-import ContactForm from '../ContactForm';
-import ContactList from '../ContactList';
-import Filter from '../Filter';
+import ContactForm from './ContactForm';
+import ContactList from './ContactList';
+import Filter from './Filter';
 
 const Contacts = () => {
   const contacts = useSelector(getContacts, shallowEqual);
@@ -44,7 +45,7 @@ const Contacts = () => {
 
   const filteredContacts = getFilteredContacts();
   return (
-    <>
+    <div className={styles.contacts}>
       <ContactForm onSubmit={addContacts} />
       <h2>Contacts</h2>
       <Filter filter={filter} changeFilter={changeFilter} />
@@ -56,7 +57,7 @@ const Contacts = () => {
           deleteContact={deleteContact}
         />
       )}
-    </>
+    </div>
   );
 };
 
