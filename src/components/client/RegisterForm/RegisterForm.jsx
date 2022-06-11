@@ -50,7 +50,9 @@ const RegisterForm = ({ onSubmit }) => {
         placeholder="Password"
         required
       />
-      <button type="submit">Register</button>
+      <button className={styles.button} type="submit">
+        Register
+      </button>
     </form>
   );
 };

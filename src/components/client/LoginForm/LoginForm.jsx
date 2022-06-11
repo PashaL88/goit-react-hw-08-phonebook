@@ -40,7 +40,9 @@ const LoginForm = ({ onSubmit }) => {
         placeholder="Password"
         required
       />
-      <button type="submit">Login</button>
+      <button className={styles.button} type="submit">
+        Login
+      </button>
     </form>
   );
 };
