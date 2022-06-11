@@ -13,13 +13,16 @@ const RegisterForm = ({ onSubmit }) => {
   const handleSubmit = event => {
     event.preventDefault();
     onSubmit({ ...form });
-    setForm(...initialState);
+    setForm({ ...initialState });
   };
+
+  const { name, email, password } = form;
 
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="">Name:</label>
       <input
+        value={name}
         onChange={handleChange}
         className={styles.input}
         type="text"
@@ -29,6 +32,7 @@ const RegisterForm = ({ onSubmit }) => {
       />
       <label htmlFor="">Email:</label>
       <input
+        value={email}
         onChange={handleChange}
         className={styles.input}
         type="email"
@@ -38,6 +42,7 @@ const RegisterForm = ({ onSubmit }) => {
       />
       <label htmlFor="">Password:</label>
       <input
+        value={password}
         onChange={handleChange}
         className={styles.input}
         type="password"
