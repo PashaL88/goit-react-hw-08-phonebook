@@ -13,12 +13,16 @@ const Navbar = () => {
   return (
     <>
       <nav className={styles.navbar}>
-        <NavLink to="/" className={getActiveLink}>
-          Home
-        </NavLink>
-        <NavLink to="/contacts" className={getActiveLink}>
-          Contacts
-        </NavLink>
+        {!isLogin && (
+          <NavLink to="/" className={getActiveLink}>
+            Home
+          </NavLink>
+        )}
+        {isLogin && (
+          <NavLink to="/contacts" className={getActiveLink}>
+            Contacts
+          </NavLink>
+        )}
         {isLogin && <UserMenu />}
         {!isLogin && <AuthMenu />}
       </nav>
