@@ -19,7 +19,7 @@ const Navbar = () => {
         <NavLink to="/contacts" className={getActiveLink}>
           Contacts
         </NavLink>
-        {/* {isLogin && <UserMenu />} */}
+        {isLogin && <UserMenu />}
         {!isLogin && <AuthMenu />}
       </nav>
     </>

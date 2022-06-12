@@ -9,8 +9,9 @@ const AuthMenu = () => {
     <>
       <div className={styles.entrance}>
         <NavLink to="/login" className={getActiveLink}>
-          Login|
+          Login
         </NavLink>
+        |
         <NavLink to="/register" className={getActiveLink}>
           Register
         </NavLink>
