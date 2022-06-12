@@ -1,10 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import styles from './navbar.module.css';
+import AuthMenu from './authMenu';
+import UserMenu from './userMenu/UserMenu';
+import { useSelector, shallowEqual } from 'react-redux';
+import { isLoginUser } from 'redux/auth/auth-selectors';
 
 const getActiveLink = ({ isActive }) =>
   isActive ? styles.authLinkActive : styles.authLink;
 
 const Navbar = () => {
+  const isLogin = useSelector(isLoginUser, shallowEqual);
   return (
     <>
       <nav className={styles.navbar}>
@@ -14,15 +19,8 @@ const Navbar = () => {
         <NavLink to="/contacts" className={getActiveLink}>
           Contacts
         </NavLink>
-        <div className={styles.entrance}>
-          <NavLink to="/login" className={getActiveLink}>
-            Login
-          </NavLink>
-          |
-          <NavLink to="/register" className={getActiveLink}>
-            Register
-          </NavLink>
-        </div>
+        {/* {isLogin && <UserMenu />} */}
+        {!isLogin && <AuthMenu />}
       </nav>
     </>
   );

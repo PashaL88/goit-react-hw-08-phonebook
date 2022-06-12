@@ -25,3 +25,17 @@ export const login = createAsyncThunk(
     }
   }
 );
+
+export const getCurrentUser = createAsyncThunk(
+  'auth/login',
+  async (_, { rejectWithValue, getState }) => {
+    try {
+      const { auth } = getState();
+      const { token } = auth;
+      const user = await services.getCurrent(token);
+      return user;
+    } catch (error) {
+      rejectWithValue(error);
+    }
+  }
+);
