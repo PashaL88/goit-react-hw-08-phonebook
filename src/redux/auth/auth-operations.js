@@ -33,10 +33,9 @@ export const getCurrentUser = createAsyncThunk(
       const { auth } = getState();
       const { token } = auth;
       const user = await services.getCurrent(token);
-      console.log(user);
       return user;
     } catch (error) {
-      rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
