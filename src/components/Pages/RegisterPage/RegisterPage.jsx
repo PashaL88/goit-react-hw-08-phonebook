@@ -2,16 +2,16 @@ import RegisterForm from 'components/client/RegisterForm';
 import { useDispatch } from 'react-redux';
 import { signup } from 'redux/auth/auth-operations';
 import { useNavigate } from 'react-router-dom';
-import { useSelector, shallowEqual } from 'react-redux';
+
 import { useEffect } from 'react';
-import { isLoginUser } from 'redux/auth/auth-selectors';
+import useLogin from 'shared/hooks/useLogin';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
-  const isLogin = useSelector(isLoginUser, shallowEqual);
+  const isLogin = useLogin();
 
   useEffect(() => {
     if (isLogin) {

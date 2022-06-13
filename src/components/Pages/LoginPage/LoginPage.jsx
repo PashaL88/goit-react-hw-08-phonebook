@@ -1,17 +1,17 @@
 import LoginForm from 'components/client/LoginForm';
 import { useNavigate } from 'react-router-dom';
-import { useSelector, shallowEqual } from 'react-redux';
+
 import { useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/auth-operations';
-import { isLoginUser } from 'redux/auth/auth-selectors';
+import useLogin from 'shared/hooks/useLogin';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const isLogin = useSelector(isLoginUser, shallowEqual);
+  const isLogin = useLogin();
 
   useEffect(() => {
     if (isLogin) {
